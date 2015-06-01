@@ -2,12 +2,12 @@ set nocompatible
 filetype plugin indent off
 
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#rc()
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
 Bundle 'gmarik/Vundle'
-"Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdtree'
 "Bundle 'scrooloose/syntastic'
 "Bundle 'Solarized'
 
