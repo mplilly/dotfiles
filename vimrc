@@ -8,8 +8,8 @@ call vundle#begin()
 " required!
 Bundle 'gmarik/Vundle'
 Bundle 'scrooloose/nerdtree'
-"Bundle 'scrooloose/syntastic'
-"Bundle 'Solarized'
+Bundle 'scrooloose/syntastic'
+Bundle 'Solarized'
 
 "call vundle#end()           " required!
 filetype plugin indent on   " required!
