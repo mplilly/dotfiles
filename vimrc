@@ -6,11 +6,12 @@ call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
-Bundle 'VundleVim/Vundle.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'Solarized'
-Bundle 'tpope/vim-surround'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'Solarized'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
 
 call vundle#end()           " required!
 filetype plugin indent on   " required!
