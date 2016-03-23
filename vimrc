@@ -1,17 +1,18 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle
 call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
-Bundle 'gmarik/Vundle'
+Bundle 'VundleVim/Vundle.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'Solarized'
+Bundle 'tpope/vim-surround'
 
-"call vundle#end()           " required!
+call vundle#end()           " required!
 filetype plugin indent on   " required!
 
 " colorscheme
