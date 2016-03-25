@@ -1,7 +1,7 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle
@@ -16,15 +16,25 @@ Plugin 'tpope/vim-repeat'
 call vundle#end()           " required!
 filetype plugin indent on   " required!
 
-" colorscheme
-set t_Co=16
+" Appearance
 syntax on
 if has('gui_running')
     set background=light
 else
+    set t_Co=16
     set background=dark
+    " solarized options
+    let g:solarized_termcolors = 16         " if using solarized for terminal colors, otherwise 256 (or comment out)
+    "let g:solarized_visibility = "high"
+    "let g:solarized_contrast = "high"
+    let g:solarized_termtrans = 1           " for iterm2
 endif
-"colorscheme solarized
+colorscheme solarized
+highlight Comment cterm=italic
+" if italics is not working, try this:
+" the first character (^[) is an escape char: ctrl-V ESC
+"set t_ZH=[3m
+"set t_ZR=[23m
 
 set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\
 \ [%l/%L\ (%p%%)
