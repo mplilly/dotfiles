@@ -12,6 +12,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'Solarized'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()           " required!
 filetype plugin indent on   " required!
@@ -20,11 +22,13 @@ filetype plugin indent on   " required!
 syntax on
 if has('gui_running')
     set background=light
+    set lines=50 columns=95
+    let g:solarized_termcolors = 256
 else
-    set t_Co=16
+    set t_Co=256
     set background=dark
     " solarized options
-    let g:solarized_termcolors = 16         " if using solarized for terminal colors, otherwise 256 (or comment out)
+    let g:solarized_termcolors = 256         " if using solarized for terminal colors, otherwise 256 (or comment out)
     "let g:solarized_visibility = "high"
     "let g:solarized_contrast = "high"
     let g:solarized_termtrans = 1           " for iterm2
@@ -33,8 +37,8 @@ colorscheme solarized
 highlight Comment cterm=italic
 " if italics is not working, try this:
 " the first character (^[) is an escape char: ctrl-V ESC
-"set t_ZH=[3m
-"set t_ZR=[23m
+set t_ZH=[3m
+set t_ZR=[23m
 
 set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\
 \ [%l/%L\ (%p%%)
@@ -63,15 +67,27 @@ set wildmenu
 " show partial commands in the last line
 "set showcmd
 
+" set encoding
+set encoding=utf-8
+
 " programming setup
-set tabstop=4
-set shiftwidth=4
-set expandtab
-syntax on
-set showmatch   " matching brackets
-au FileType py set autoindent
-au FileType py set smartindent
-au FileType py set textwidth=79 " PEP-8 Friendly
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set smartindent
+    \ set fileformat=unix
+" set tabstop=4
+" set shiftwidth=4
+" set expandtab
+" syntax on
+" set showmatch   " matching brackets
+" au FileType py set autoindent
+" au FileType py set smartindent
+" au FileType py set textwidth=79 " PEP-8 Friendly
 
 " Searches for tags file in current folder and works its way up to
 " root looking for one.
@@ -86,3 +102,10 @@ map <F3> :NERDTreeToggle<CR>
 
 " Syntastic config
 let g:syntastic_check_on_open=1
+
+" YouCompleteMe
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" flag unnecessary white space
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
