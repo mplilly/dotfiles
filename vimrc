@@ -13,12 +13,16 @@ Plugin 'Solarized'
 Plugin 'jnurmine/Zenburn'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'davidhalter/jedi-vim'
+Plugin 'tpope/vim-jdaddy' " for json formatting
+"Plugin 'davidhalter/jedi-vim'
 Plugin 'nvie/vim-flake8'
 " check out the new powerline project
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'kien/ctrlp.vim'
+" for python
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'tmhedberg/SimpylFold'
+"Plugin 'Valloric/YouCompleteMe'
 call vundle#end()           " required!
 filetype plugin indent on   " required!
 
@@ -35,7 +39,7 @@ else
     " solarized options
     let g:solarized_termcolors = 256         " if using solarized for terminal colors, otherwise 256 (or comment out)
     "let g:solarized_visibility = "high"
-    "let g:solarized_contrast = "high"
+    let g:solarized_contrast = "high"
     let g:solarized_termtrans = 1           " for iterm2
 endif
 colorscheme solarized
@@ -49,6 +53,11 @@ set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\
 \ [%l/%L\ (%p%%)
 set ruler
 set visualbell
+
+" code folding
+autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
+autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
+set foldlevelstart=20
 
 " search settings
 set hlsearch
@@ -83,7 +92,13 @@ au BufNewFile,BufRead *.py
     \ set textwidth=79 |
     \ set expandtab |
     \ set autoindent |
-    \ set smartindent |
+    \ set fileformat=unix
+au BufNewFile,BufRead *.c
+    \ set tabstop=4 |
+    \ set softtabstop=0 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set autoindent |
     \ set fileformat=unix
 
 " Searches for tags file in current folder and works its way up to
@@ -106,3 +121,18 @@ let g:syntastic_check_on_open=1
 "
 " Powerline
 set laststatus=2
+
+" SimpylFold config
+let g:SimpylFold_docstring_preview=1
+
+" YouCompleteMe setup
+let g:ycm_autoclose_preview_window_after_completion=1
+"python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
