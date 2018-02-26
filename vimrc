@@ -14,7 +14,10 @@ Plugin 'jnurmine/Zenburn'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-jdaddy' " for json formatting
-"Plugin 'davidhalter/jedi-vim'
+Plugin 'vim-scripts/indentpython.vim'
+" Plugin 'davidhalter/jedi-vim'
+" Plugin 'vim-scripts/taglist.vim'
+Plugin 'majutsushi/tagbar'
 Plugin 'nvie/vim-flake8'
 " check out the new powerline project
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
@@ -23,9 +26,9 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'tmhedberg/SimpylFold'
 "Plugin 'Valloric/YouCompleteMe'
-"Plugin taglist
-call vundle#end()
-filetype plugin indent on
+Plugin 'gabrielelana/vim-markdown'
+call vundle#end()           " required!
+filetype plugin indent on   " required!
 
 " Appearance
 let python_highlight_all=1
@@ -47,8 +50,8 @@ colorscheme solarized
 highlight Comment cterm=italic
 " if italics is not working, try this:
 " the first character (^[) is an escape char: ctrl-V ESC
-set t_ZH=[3m
-set t_ZR=[23m
+" set t_ZH=[3m
+" set t_ZR=[23m
 
 set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\
 \ [%l/%L\ (%p%%)
@@ -112,6 +115,7 @@ let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
 let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
 let NERDTreeShowBookmarks=1
 map <F3> :NERDTreeToggle<CR>
+map <Leader>nt :NERDTreeToggle<CR>
 
 " Syntastic config
 let g:syntastic_check_on_open=1
@@ -136,4 +140,7 @@ if 'VIRTUAL_ENV' in os.environ:
   project_base_dir = os.environ['VIRTUAL_ENV']
   activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
   execfile(activate_this, dict(__file__=activate_this))
+
+" tagbar
+map <Leader>tb :TagbarToggle<CR>
 EOF
