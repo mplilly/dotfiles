@@ -23,8 +23,9 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'tmhedberg/SimpylFold'
 "Plugin 'Valloric/YouCompleteMe'
-call vundle#end()           " required!
-filetype plugin indent on   " required!
+"Plugin taglist
+call vundle#end()
+filetype plugin indent on
 
 " Appearance
 let python_highlight_all=1
