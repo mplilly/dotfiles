@@ -14,7 +14,9 @@ Plugin 'jnurmine/Zenburn'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'vim-scripts/indentpython.vim'
-Plugin 'davidhalter/jedi-vim'
+" Plugin 'davidhalter/jedi-vim'
+Plugin 'vim-scripts/taglist.vim'
+Plugin 'majutsushi/tagbar'
 Plugin 'nvie/vim-flake8'
 " check out the new powerline project
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
@@ -42,8 +44,8 @@ colorscheme solarized
 highlight Comment cterm=italic
 " if italics is not working, try this:
 " the first character (^[) is an escape char: ctrl-V ESC
-set t_ZH=[3m
-set t_ZR=[23m
+" set t_ZH=[3m
+" set t_ZR=[23m
 
 set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\
 \ [%l/%L\ (%p%%)
@@ -96,6 +98,7 @@ let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
 let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
 let NERDTreeShowBookmarks=1
 map <F3> :NERDTreeToggle<CR>
+map <Leader>nt :NERDTreeToggle<CR>
 
 " Syntastic config
 let g:syntastic_check_on_open=1
@@ -106,3 +109,6 @@ let g:syntastic_check_on_open=1
 "
 " Powerline
 set laststatus=2
+
+" tagbar
+map <Leader>tb :TagbarToggle<CR>
