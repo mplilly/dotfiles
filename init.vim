@@ -3,7 +3,6 @@ filetype off
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-" required!
 Plug 'altercation/vim-colors-solarized'
 Plug 'jnurmine/Zenburn'
 
