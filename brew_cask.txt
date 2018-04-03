@@ -1,0 +1,14 @@
+arq
+bartender
+firefox
+google-chrome
+google-chrome-canary
+iterm2
+karabiner-elements
+keepassxc
+keyboard-maestro
+omnidisksweeper
+resilio-sync
+superduper
+transmission
+vivaldi
