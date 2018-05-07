@@ -7,6 +7,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'jnurmine/Zenburn'
 Plug 'chriskempson/base16-vim'
 
+
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 
@@ -37,7 +38,12 @@ Plug 'ervandew/supertab'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+" tmux and vim
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()           " required!
+
+let g:python3_host_prog = '/Users/mplilly/miniconda3/envs/neovim3/bin/python'
 
 " Appearance
 let python_highlight_all=1
