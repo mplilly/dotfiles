@@ -5,6 +5,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'altercation/vim-colors-solarized'
 Plug 'jnurmine/Zenburn'
+Plug 'chriskempson/base16-vim'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -23,29 +24,33 @@ Plug 'nvie/vim-flake8'
 
 " autocomplete
 " Plug 'davidhalter/jedi-vim'
-" Plug 'scrooloose/syntastic'
-Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+
 Plug 'ervandew/supertab'
 
-Plug 'Lokaltog/powerline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()           " required!
 
 " Appearance
 let python_highlight_all=1
-if has('gui_running')
-    set background=light
-    set lines=50 columns=95
-    let g:solarized_termcolors = 256
-else
-    set t_Co=256
-    set background=dark
-    " solarized options
-    let g:solarized_termcolors = 256         " if using solarized for terminal colors, otherwise 256 (or comment out)
-    "let g:solarized_visibility = "high"
-    "let g:solarized_contrast = "high"
-    let g:solarized_termtrans = 1           " for iterm2
-endif
+" set t_Co=256
+set background=dark
+" solarized options
+let g:solarized_termcolors = 256         " if using solarized for terminal colors, otherwise 256 (or comment out)
+let g:solarized_termtrans = 1           " for iterm2
+
 colorscheme solarized
+"h colorscheme base16-default-dark
+let base16colorspace=256
+" colorscheme base16-solarized-dark
 highlight Comment cterm=italic
 " if italics is not working, try this:
 " the first character (^[) is an escape char: ctrl-V ESC
