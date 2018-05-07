@@ -9,7 +9,7 @@ Plug 'jnurmine/Zenburn'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-vinegar'
 Plug 'wincent/command-t'
@@ -106,7 +106,7 @@ let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
 let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
 let NERDTreeShowBookmarks=1
 map <F3> :NERDTreeToggle<CR>
-map <Leader>nt :NERDTreeToggle<CR>
+map <Leader>n :NERDTreeToggle<CR>
 
 " Syntastic config
 let g:syntastic_check_on_open=1
@@ -119,4 +119,7 @@ let g:syntastic_check_on_open=1
 set laststatus=2
 
 " tagbar
-map <Leader>tb :TagbarToggle<CR>
+map <Leader>T :TagbarToggle<CR>
+
+" command-t
+map <Leader>b :CommandTBuffer<CR>

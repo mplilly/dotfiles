@@ -11,10 +11,10 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'Solarized'
 Plugin 'jnurmine/Zenburn'
+Plugin 'chriskempson/base16-vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-jdaddy' " for json formatting
-Plugin 'vim-scripts/indentpython.vim'
 " Plugin 'davidhalter/jedi-vim'
 " Plugin 'vim-scripts/taglist.vim'
 Plugin 'majutsushi/tagbar'
@@ -116,6 +116,10 @@ let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
 let NERDTreeShowBookmarks=1
 map <F3> :NERDTreeToggle<CR>
 map <Leader>nt :NERDTreeToggle<CR>
+" Would be useful mappings, but they interfere with my default window movement
+" bindings (<C-j> and <C-k>).
+let g:NERDTreeMapJumpPrevSibling='<Nop>'
+let g:NERDTreeMapJumpNextSibling='<Nop>'
 
 " Syntastic config
 let g:syntastic_check_on_open=1
@@ -130,6 +134,9 @@ set laststatus=2
 " SimpylFold config
 let g:SimpylFold_docstring_preview=1
 
+" tagbar
+map <Leader>tb :TagbarToggle<CR>
+
 " YouCompleteMe setup
 let g:ycm_autoclose_preview_window_after_completion=1
 "python with virtualenv support
@@ -141,6 +148,4 @@ if 'VIRTUAL_ENV' in os.environ:
   activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
   execfile(activate_this, dict(__file__=activate_this))
 
-" tagbar
-map <Leader>tb :TagbarToggle<CR>
 EOF
