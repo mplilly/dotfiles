@@ -146,7 +146,7 @@ let g:NERDTreeMapJumpNextSibling='<Nop>'
 set laststatus=2
 
 " tagbar
-map <Leader>T :TagbarToggle<CR>
+map <Leader>tb :TagbarToggle<CR>
 
 " command-t
 map <Leader>b :CommandTBuffer<CR>
