@@ -116,7 +116,10 @@ au BufNewFile,BufRead *.py
     \ set smartindent |
     \ set fileformat=unix
 
-autocmd BufWritePost *.py call Flake8()
+"autocmd BufWritePost *.py call Flake8()
+
+" markdown 
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " code completion
 let g:deoplete#enable_at_startup=1
