@@ -54,7 +54,7 @@ command! PackClean packadd minpac | source $MYVIMRC | call minpac#clean()
 command! PackStatus packadd minpac | source $MYVIMRC | call minpac#status()
 
 " neovim python
-let g:python3_host_prog = '/Users/mplilly/.virtualenv/nvim/bin/python3'
+let g:python3_host_prog = "~/.virtualenv/nvim/bin/python3"
 
 " Appearance
 let python_highlight_all=1
