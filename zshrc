@@ -6,6 +6,9 @@ setopt autocd extendedglob notify
 unsetopt beep
 
 bindkey -v
+# plugin order: zsh-autosuggestions, zsh-syntax-highlighting, zsh-vim-mode
+source "$HOME/projects/zsh-vim-mode/zsh-vim-mode.plugin.zsh"
+
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
@@ -26,6 +29,8 @@ eval $(starship init zsh)
 
 export EDITOR=nvim
 export VISUAL=$EDITOR
+export BEMENU_BACKEND="wayland"
+export BEMENU_OPTS="--fn FiraCoda Nerd Font 16"
 
 # The following lines were added by compinstall
 
@@ -38,5 +43,5 @@ zstyle ':completion:*' use-compctl false
 zstyle :compinstall filename '/home/mplilly/.config/zsh/.zshrc'
 
 autoload -Uz compinit
-compinit
+compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 # End of lines added by compinstall
