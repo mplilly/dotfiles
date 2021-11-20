@@ -1,0 +1,7 @@
+if [ ! -d ~/.local/share/list-packages ]
+then
+    mkdir ~/.local/share/list-packages
+fi
+
+flatpak list > ~/.local/share/list-packages/flatpak.txt
+apt list --installed > ~/.local/share/list-packages/apt.txt 2>/dev/null

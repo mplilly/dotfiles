@@ -1,0 +1,2 @@
+#! /bin/bash
+fc-list | awk '{ FS = ":" }; { print $2; }' | sort -u -k1,2
