@@ -17,7 +17,7 @@ bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
 
 # Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
+BASE16_SHELL="$HOME/projects/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
@@ -29,8 +29,6 @@ eval $(starship init zsh)
 
 export EDITOR=nvim
 export VISUAL=$EDITOR
-export BEMENU_BACKEND="wayland"
-export BEMENU_OPTS="--fn FiraCoda Nerd Font 16"
 
 # The following lines were added by compinstall
 
