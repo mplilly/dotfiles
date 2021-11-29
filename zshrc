@@ -7,6 +7,7 @@ unsetopt beep
 
 bindkey -v
 # plugin order: zsh-autosuggestions, zsh-syntax-highlighting, zsh-vim-mode
+#source "$HOME/projects/zsh-vim-mode/zsh-vim-mode.plugin.zsh" 
 source "$HOME/projects/zsh-vim-mode/zsh-vim-mode.plugin.zsh"
 
 autoload -U up-line-or-beginning-search
@@ -24,8 +25,14 @@ BASE16_SHELL="$HOME/projects/base16-shell/"
 
 alias vim=nvim
 alias ls='ls --color=tty'
+alias reboot='systemctl reboot --firmware-setup'
 
-eval $(starship init zsh)
+# MPL: moves line when mode changes between normal and insert for zsh-vi-mode and zsh-vim-mode
+# eval $(starship init zsh)
+fpath+=$HOME/projects/pure
+autoload promptinit; promptinit
+prompt spaceship
+# prompt pure
 
 export EDITOR=nvim
 export VISUAL=$EDITOR
