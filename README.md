@@ -30,6 +30,7 @@ tic -o $HOME/.terminfo xterm.terminfo
 ```
 ln -sf ~/projects/dotfiles/zshrc ~/.config/zsh/.zshrc
 ln -sf ~/projects/dotfiles/tmux.conf ~/.config/tmux/tmux.conf
+```
 
 # zsh
 * clone softmoth/zsh-vim-mode, chriskempson/base16-shell, spaceship-prompt/spaceship-prompt (--depth=1)
@@ -38,6 +39,8 @@ ln -sf ~/projects/dotfiles/tmux.conf ~/.config/tmux/tmux.conf
 ```
 ln -sf ~/projects/spaceship-prompt/spaceship.zsh /usr/local/share/zsh/site-functions/prompt/spaceship/setup
 
+# git
+* install gh cli for authentication (add keyring, etc. as shown on github.com)
 
 # tmux
 copy tmux.conf to ~/.tmux.conf
