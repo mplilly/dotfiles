@@ -17,6 +17,8 @@ zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
 
+export PATH=$PATH:~/.local/bin
+
 # Base16 Shell
 BASE16_SHELL="$HOME/projects/base16-shell/"
 [ -n "$PS1" ] && \
