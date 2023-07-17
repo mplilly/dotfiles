@@ -1,5 +1,5 @@
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
+HISTFILE=~/.config/zsh/.histfile
 HISTSIZE=2000
 SAVEHIST=1000
 setopt autocd extendedglob notify
@@ -17,7 +17,8 @@ zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
 
-export PATH=$PATH:~/.local/bin
+export PATH=$PATH:~/.local/bin:~/.local/share/flatpak/exports/bin:~/.config/lsp/lua-language-server/bin
+export LESSHISTFILE=~/.config/less/history
 
 # Base16 Shell
 BASE16_SHELL="$HOME/projects/base16-shell/"
@@ -28,12 +29,15 @@ BASE16_SHELL="$HOME/projects/base16-shell/"
 alias vim=nvim
 alias ls='ls --color=tty'
 alias reboot='systemctl reboot --firmware-setup'
+alias nvim='nvim.appimage'
+alias lazyvim='NVIM_APPNAME=LazyVim nvim'
 
 # MPL: moves line when mode changes between normal and insert for zsh-vi-mode and zsh-vim-mode
 # eval $(starship init zsh)
 fpath+=$HOME/projects/pure
 autoload promptinit; promptinit
-prompt spaceship
+# prompt spaceship
+source ~/projects/spaceship-prompt/spaceship.zsh
 # prompt pure
 
 export EDITOR=nvim
@@ -52,3 +56,5 @@ zstyle :compinstall filename '/home/mplilly/.config/zsh/.zshrc'
 autoload -Uz compinit
 compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 # End of lines added by compinstall
+
+alias luamake=/home/mplilly/.config/lsp/lua-language-server/3rd/luamake/luamake
