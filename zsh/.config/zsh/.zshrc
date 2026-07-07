@@ -21,6 +21,10 @@ zstyle ':completion:*' menu select                       # arrow-key menu
 export EDITOR=nvim
 export VISUAL=nvim
 
+# -----= Path -----
+typeset -U path
+[[ -d $HOME/.local/bin ]] && path=($HOME/.local/bin $path)
+
 # ---- Plugins (order matters) ----
 ZPLUG="$ZDOTDIR/plugins"
 source "$ZPLUG/zsh-autosuggestions/zsh-autosuggestions.zsh"
