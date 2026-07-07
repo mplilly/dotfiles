@@ -2,7 +2,7 @@
 
 format = """
 [░▒▓](#a3aed2)\
-[pine](bg:#a3aed2 fg:#090c0c)\
+[ ](bg:#a3aed2 fg:#090c0c)\
 [](bg:#769ff0 fg:#a3aed2)\
 $directory\
 [](fg:#769ff0 bg:#394260)\
@@ -70,3 +70,21 @@ disabled = false
 time_format = "%R" # Hour:Minute Format
 style = "bg:#1d2230"
 format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
+
+[hostname]
+ssh_only = true
+format = "[$ssh_symbol$hostname]($style) "
+style = "bold dimmed green"
+trim_at = "."
+
+[custom.host_grandcentral]
+when = ''' test "$(hostname -s)" = grandcentral '''
+command = "echo grandcentral"
+format = "[$output]($style) "
+style = "bold red"
+
+[custom.host_aidev]
+when = ''' test "$(hostname -s)" = aidev '''
+command = "echo aidev"
+format = "[$output]($style) "
+style = "bold blue"
