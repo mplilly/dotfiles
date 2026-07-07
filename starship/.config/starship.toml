@@ -1,8 +1,9 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
+$hostname\
 [░▒▓](#a3aed2)\
-[ $hostname ](bg:#a3aed2 fg:#090c0c)\
+[ ](bg:#a3aed2 fg:#090c0c)\
 [](bg:#769ff0 fg:#a3aed2)\
 $directory\
 [](fg:#769ff0 bg:#394260)\
@@ -73,7 +74,7 @@ format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
 
 [hostname]
 ssh_only = true
-format = "[$hostname]($style) "
+format = "[$ssh_symbol$hostname]($style) "
 style = "bold dimmed green"
 trim_at = "."
 
