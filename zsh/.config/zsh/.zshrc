@@ -51,15 +51,20 @@ bindkey -M vicmd 'v' edit-command-line
 
 # keep a few familiar keys in insert mode
 bindkey -M viins '^A' beginning-of-line
-bindkey -M viins '^E' end-of-line
+# bindkey -M viins '^E' end-of-line
 bindkey -M viins '^W' backward-kill-word
 bindkey -M viins '^?' backward-delete-char
 
 # command recall: arrows in insert mode, k/j in normal mode
+bindkey -M viins '^Y' autosuggest-accept
+bindkey -M viins '^E' autosuggest-clear
+bindkey -M viins '^X^O' autosuggest-fetch
 bindkey -M viins "$terminfo[kcuu1]" history-substring-search-up
 bindkey -M viins "$terminfo[kcud1]" history-substring-search-down
 bindkey -M viins '^[[A' history-substring-search-up
 bindkey -M viins '^[[B' history-substring-search-down
+bindkey -M viins '^P' history-substring-search-up
+bindkey -M viins '^N' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
